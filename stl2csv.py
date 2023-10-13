@@ -2,7 +2,7 @@ from stl import mesh # run pip install numpy-stl
 import numpy as np
 import csv
 
-def stl2csv(stl_folder, file_name, csv_folder):
+def convert(stl_folder, file_name, csv_folder):
     mesh_data = mesh.Mesh.from_file(stl_folder + file_name)
     verts = np.unique(mesh_data.vectors.reshape(-1, 3), axis=0).tolist()
 
@@ -31,4 +31,4 @@ file_name = 'cylinder.stl'
 csv_folder = 'stl_test/'
 
 if __name__ == '__main__':
-    stl2csv(stl_folder, file_name, csv_folder)
+    convert(stl_folder, file_name, csv_folder)
